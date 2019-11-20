@@ -11,8 +11,10 @@ const handleBlogRouter = (req,res)=>{
     const id = req.query.id
 
     if(req.method==='GET' && req.path === '/api/blog/list'){
-        const author = req.query.anthor || '',
-        keywords = req.query.keywords || '',
+        const author = req.query.author || '',
+        keywords = req.query.keywords || '';
+        console.log('author/',author)
+        console.log('keywords/',keywords)
         result = getList(author,keywords);
         //源promise对象resolve的数据作为listData传入 而promise对象一层层return了出去
         return result.then(listData=>{

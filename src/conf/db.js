@@ -7,18 +7,18 @@ if(env==='dev'){
     MYSQL_CONF = {
         host:'localhost',
         user:'root',
-        password:'',
+        password:'CYLroot',
         port:'3306',
-        database:''
+        database:'mysql'
     }
 }
 if(env==='production'){
     MYSQL_CONF = {
-        host:'',
-        user:'',
-        password:'',
-        port:'',
-        database:''
+        host:'localhost',
+        user:'root',
+        password:'CYLroot',
+        port:'3306',
+        database:'mysql'
     }
 }
 

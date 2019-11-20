@@ -1,12 +1,12 @@
 const {exec} = require('../db/mysql')
 
 const getList = (author,keywords)=>{
-    let sql = `select * from blogs where 1=1`
-    if(anthor){
-        sql += `and anthor = ${author}`
+    let sql = `select * from blogs where 1=1 `
+    if(author){
+        sql += `and author = ${author} `
     }
     if(keywords){
-        sql += `and title like %${keywords}%`//TODO
+        sql += `and title like %${keywords}% `//TODO
     }
     sql += `order by createtime desc;`
 
@@ -24,7 +24,7 @@ const getDetail = (id = {})=>{//ES6默认值写法
 const newBlog = (blogData = {})=>{
     const title = blogData.title,
     content = blogData.content,
-    author = blogData.anthor,
+    author = blogData.author,
     createTime = Date.now(),
     sql = `insert into blogs (title,contentr,createtime,author) 
     values (${title},${content},${createTime},${author});`
