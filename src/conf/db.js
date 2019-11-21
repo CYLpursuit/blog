@@ -9,7 +9,7 @@ if(env==='dev'){
         user:'root',
         password:'CYLroot',
         port:'3306',
-        database:'mysql'
+        database:'blogPlatform'
     }
 }
 if(env==='production'){
@@ -18,7 +18,7 @@ if(env==='production'){
         user:'root',
         password:'CYLroot',
         port:'3306',
-        database:'mysql'
+        database:'blogPlatform'
     }
 }
 
