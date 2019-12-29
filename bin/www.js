@@ -6,7 +6,7 @@ const http = require('http')
 const serverHandle = require('../app')
 
 // 定义端口号
-const PORT = 8000
+const PORT = 8000//TODO: 端口自动升级
 
 // 起服务，回调函数采用模块化
 const server = http.createServer(serverHandle);

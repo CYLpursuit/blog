@@ -16,6 +16,7 @@ const getList = (author,keywords)=>{
 const getDetail = (id = {})=>{//ES6默认值写法
     const sql = `select * from blogs where id = '${id}';`
     return exec(sql).then(rows=>{
+        console.log(rows[0])
         return rows[0]
     })
 }
@@ -70,8 +71,8 @@ const updateBlog = (id,blogData)=>{
 const delBlog = (id,author)=>{
     const sql = `delete from blogs where id='${id}' and author = '${author}';`//防止用户删除别人的博客（安全）
     return exec(sql).then(delData=>{
-        console.log('updateData/',updateData)
-        if(updateData.affectedRows>0){
+        console.log('updateData/',delData)
+        if(delData.affectedRows>0){
             return true
         }else{
             return false

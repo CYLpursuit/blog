@@ -22,13 +22,15 @@ const handleBlogRouter = (req,res)=>{
         })
     }
     if(req.method==='GET' && req.path === '/api/blog/detail'){
+        console.log('id/',id)
         const result = getDetail(id)
-        result.then(detailData=>{
+        return result.then(detailData=>{
             return new SuccessModel(detailData)
         })
     }
     if(req.method==='POST' && req.path === '/api/blog/new'){
-        req.body.author = 'zs'//TODO 暂时写死新建博客作者后根据登录情况获取
+        console.log('postData/',req.body)
+        req.body.author = 'yl'//TODO: 暂时写死新建博客作者后根据登录情况获取
         const result = newBlog(req.body)
         return result.then(data=>{
             return new SuccessModel(data)
@@ -45,7 +47,7 @@ const handleBlogRouter = (req,res)=>{
         })
     }
     if(req.method==='POST' && req.path === '/api/blog/del'){
-        req.body.author = 'zs'//TODO 暂时写死新建博客作者后根据登录情况获取
+        req.body.author = 'zs'//TODO: 暂时写死新建博客作者后根据登录情况获取
         const result = delBlog(id,req.body.author)
         return result.then(value=>{
             if(result) return new SuccessModel(result)

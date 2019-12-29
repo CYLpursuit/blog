@@ -10,7 +10,7 @@ const handleUserRouter = (req,res)=>{
         return result.then(data=>{
             if(data.username){
                 // 操作cookie 设置所有路由均生效
-                res.setHeaders('set-cookie',`username=${username};path=/`)
+                // res.setHeader('Set-Cookie',`username='${username}';path=/`) //TODO: set-cookie不存在
                 return new SuccessModel('登录成功')
             }else{
                 return new ErrorModel('登录失败')

@@ -21,9 +21,17 @@
   "homepage": "https://github.com/CYLpursuit/blog#readme",
   "dependencies": {
     "lodash": "^4.17.15",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/register": "^7.7.7",
     "cross-env": "^6.0.3",
     "nodemon": "^1.19.4"
   }

@@ -55,19 +55,23 @@ const serverHandle = (req,res)=>{
     // 处理postData
     getPostData(req,res).then((postData)=>{
         req.body = postData//不是res????
-
+        console.log('method/',req.method)
+        console.log('path/',req.path)
+        console.log('remoteAddress/',req.socket.remoteAddress)
+        console.log('remotePort/',req.socket.remotePort)
         // 处理路由
         const blogResult = handleBlogRouter(req,res)
-        if(blogResult){
+        if(blogResult){//TODO: 异步undefined问题探究处理=》没有return promise
             blogResult.then(blogData =>{
                 res.end(JSON.stringify(blogData))
             })
             return;
         }
         const userResult = handleUserRouter(req,res)
+        console.log('userResult/',userResult)
         if(userResult){
             userResult.then(userData=>{
-                res.end(JSON.stringify(userRouter))
+                res.end(JSON.stringify(userData))
             })
             return;
         }
