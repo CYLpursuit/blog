@@ -4,7 +4,7 @@ const {
     newBlog,
     updateBlog,
     delBlog} = require ('../controller/blog')
-const {SuccessModel,ErrorModel} = require('../model/resModel')
+const {SuccessModel,ErrorModel} = require('../resModel/resModel')
 
 const handleBlogRouter = (req,res)=>{
 
@@ -30,7 +30,6 @@ const handleBlogRouter = (req,res)=>{
     }
     if(req.method==='POST' && req.path === '/api/blog/new'){
         console.log('postData/',req.body)
-        req.body.author = 'yl'//TODO: 暂时写死新建博客作者后根据登录情况获取
         const result = newBlog(req.body)
         return result.then(data=>{
             return new SuccessModel(data)
@@ -47,10 +46,9 @@ const handleBlogRouter = (req,res)=>{
         })
     }
     if(req.method==='POST' && req.path === '/api/blog/del'){
-        req.body.author = 'zs'//TODO: 暂时写死新建博客作者后根据登录情况获取
         const result = delBlog(id,req.body.author)
         return result.then(value=>{
-            if(result) return new SuccessModel(result)
+            if(value) return new SuccessModel(result)
             else return new ErrorModel('抱歉，删除失败...')
         })
     }

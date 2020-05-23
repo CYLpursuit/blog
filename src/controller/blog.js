@@ -1,4 +1,4 @@
-const {exec} = require('../db/mysql')
+const {exec} = require('../dbConnect/mysql')
 
 const getList = (author,keywords)=>{
     let sql = `select * from blogs where 1=1 `

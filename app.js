@@ -36,17 +36,17 @@ const getPostData = ((req,res) =>{
 const serverHandle = (req,res)=>{
     //处理path
     req.path = req.url.split('?')[0];
-    // 处理query
+    // 解析query
     req.query = querystring.parse(req.url.split('?')[1])
-    // 处理cookie
+    // 解析cookie 本质都是字符串，需要格式化处理
     req.cookie = {}
     const cookieStr = req.headers.cookie || '';
     cookieStr.split(';').forEach(item=>{
         if(!item){
             return 
         }
-        const key = item.split('=')[0]
-        const value = item.split('=')[1]
+        const key = item.split('=')[0].trim();
+        const value = item.split('=')[1].trim();
         req.cookie[key]=value//不能用.访问对象的时候就用[]，且只有这两种方式
     })
     console.log('cookie/',req.cookie)
@@ -54,7 +54,7 @@ const serverHandle = (req,res)=>{
     res.setHeader('content-type','application/json')
     // 处理postData
     getPostData(req,res).then((postData)=>{
-        req.body = postData//不是res????
+        req.body = postData;
         console.log('method/',req.method)
         console.log('path/',req.path)
         console.log('remoteAddress/',req.socket.remoteAddress)

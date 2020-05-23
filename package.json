@@ -2,11 +2,11 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "一套基于koa2+mysql以及vue的blog项目",
-  "main": "bin/www.js",
+  "main": "bin/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
-    "prd": "cross-env NODE_ENV=production nodemon ./bin/www.js"
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/server.js",
+    "prd": "cross-env NODE_ENV=production nodemon ./bin/server.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   "homepage": "https://github.com/CYLpursuit/blog#readme",
   "dependencies": {
     "lodash": "^4.17.15",
-    "mysql": "^2.17.1",
+    "mysql": "^2.18.1",
+    "redis": "^3.0.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
